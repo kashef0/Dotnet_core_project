@@ -1,0 +1,106 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - M.Abokashef</title>
+    <script type="importmap"></script>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/userProfile.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/portofilioApp.styles.css" asp-append-version="true" />
+</head>
+<body class="@(ViewData["Title"]?.ToString() == "Hemsida" ? "container-xl justify-center mainbg-color" : "bg-white")">
+    <header>
+    <nav class="navbar py-3 secondry navbar-expand-sm navbar-toggleable-sm border-bottom navbar-light box-shadow">
+        <div class="container-fluid">
+            <a class="navbar-brand text-white" asp-area="" asp-controller="Home" asp-action="Index">M.Abokashef</a>
+            <button class="navbar-toggler bg-white" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon text-white"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    
+                    <li class="nav-item">
+                        <a class="nav-link text-white text-center links link-hover" asp-area="" asp-controller="Home" asp-action="Index">Hemsida</a>
+                    </li>
+
+                    @if (User.Identity != null) {
+
+                        @if (User.Identity.IsAuthenticated)
+                        {   
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-white text-center links link-hover" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Hantera Innehåll
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="UserProfile" asp-action="Index">Användarprofil</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="UserProfile" asp-action="Create">Skapa Användarprofil</a></li>
+
+                                
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Skills" asp-action="Index">Färdigheter</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Skills" asp-action="Create">Skapa Färdighet</a></li>
+
+                                
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Service" asp-action="Index">Tjänster</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Service" asp-action="Create">Skapa Tjänst</a></li>
+
+                                    
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Experience" asp-action="Index">Erfarenheter</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Experience" asp-action="Create">Skapa Erfarenhet</a></li>
+
+                                    
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Project" asp-action="Index">Projekt</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Project" asp-action="Create">Skapa Projekt</a></li>
+
+                                    
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="SocialLink" asp-action="Index">Sociala Länkar</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="SocialLink" asp-action="Create">Skapa Social Länk</a></li>
+
+                                
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="ContactInfo" asp-action="Index">Kontaktinformation</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="ContactInfo" asp-action="Create">Skapa Kontaktinformation</a></li>
+
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="Contact" asp-action="Index">besökare Medellande</a></li>
+
+                                    
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="AboutMe" asp-action="Index">Om Mig</a></li>
+                                    <li><a class="dropdown-item" asp-area="" asp-controller="AboutMe" asp-action="Create">Skapa Om Mig</a></li>
+                                </ul>
+                            </li>
+                        }
+                        @if (!User.Identity.IsAuthenticated) {
+
+                        <!-- Kontakta Mig -->
+                        <li class="nav-item">
+                            <a class="nav-link text-white text-center links link-hover" asp-area="" asp-controller="Contact" asp-action="Create">Kontakta Mig</a>
+                        </li>
+                        }
+                    }
+
+
+                </ul>
+                <partial name="_LoginPartial" />
+            </div>
+        </div>
+    </nav>
+</header>
+    <div class="main-bg container-xl justify-center">
+        <main role="main">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top p-3 secondry text-center text-muted">
+        <div class="text-white">
+            &copy; 2025 - M.Abokashef- <a asp-area="" asp-controller="Contact" asp-action="Create">Kontakta Mig</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

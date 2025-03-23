@@ -1,0 +1,399 @@
+
+@import '../css/site.css';
+
+
+
+
+/* General Section Styling */
+.section {
+    margin-bottom: 4rem;
+}
+
+.container-tests {
+    margin-bottom: 3rem;
+}
+
+.container-images {
+    width: 50%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* User Profile Section */
+.user-profile {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+    background-color: var(--bgColor-1);
+    border-radius: 8px;
+}
+
+.user-profile h1 {
+    font-size: 2.5rem;
+    color: var(--primaryColor);
+    margin-bottom: 0.5rem;
+}
+
+.user-profile h3 {
+    font-size: 1.25rem;
+    color: var(--secondColor);
+    margin-bottom: 1rem;
+}
+
+.user-image {
+    max-width: 900px;
+    width: 100%;
+    height: 50dvh;
+    border-radius: .5rem;
+}
+
+.social {
+    display: flex;
+    gap: .75rem;
+}
+
+.social a {
+    display: inline-block;
+    transition: transform 0.3s;
+}
+
+.social img {
+    width: 40px;
+    height: 40px;
+}
+
+.social a:hover img {
+    transform: scale(1.1);
+}
+
+/* Skills Section */
+.skills-section {
+    margin-bottom: 4rem;
+}
+
+.skills-section, .about, .user-profile h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primaryColor);
+    margin-bottom: 1.5rem;
+}
+
+.skills-section ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.skills-section li {
+    padding: 2rem;
+    background-color: var(--bgColor-2);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.skills-section li:hover {
+    transform: translateY(-5px);
+}
+
+.skills-section img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border: none;
+    background-color: transparent;
+    
+}
+
+.section-title-skills {
+    margin: 2rem;
+}
+
+.skill-percentage {
+    font-size: 1rem;
+}
+
+.progress-circle {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Circular Skill Icon */
+.skill-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: white;
+    border: 3px solid #ddd; 
+}
+
+
+/* Services Section */
+.services-section {
+    margin: 4rem 0;
+}
+
+.service-title {
+    color: var(--secondColor);
+}
+
+.section-title-service {
+    text-align: center;
+    margin: 2rem;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--lightColor);
+    
+}
+
+.section-title-service span {
+    color: var(--primaryColor);
+}
+.services-section ul {
+    width: 100%;
+    display: flex;
+    
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.services-section li {
+    width: 32%;
+    padding: 2rem;
+    background-color: var(--bgColor-2);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.services-section li:hover {
+    transform: translateY(-5px);
+}
+
+.services-section p {
+    font-size: 1.1rem;
+    color: var(--lightColor);
+}
+
+
+/* Experience Section */
+.experience-section {
+    margin-bottom: 4rem;
+}
+
+.experience-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primaryColor);
+    margin-bottom: 1.5rem;
+}
+
+.experience-company{
+    color: var(--secondColor);
+}
+
+.experience-description {
+    color: var(--lightColor);
+}
+
+.experience-section ul {
+    width: 100%;
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.experience-role {
+    color: var(--primaryColor);
+    font-size: 1.1rem;
+}
+.experience-dates {
+    color: var(--primaryColor);
+}
+
+.experience-section li {
+    width: 33.33%;
+    padding: 2rem;
+    background-color: var(--bgColor-2);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+/* Projects Section */
+.projects-section {
+    margin-bottom: 4rem;
+}
+
+.projects-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primaryColor);
+    margin-bottom: 1.5rem;
+}
+
+.project-title {
+    color: var(--secondColor);
+}
+
+.projects-section ul {
+    display: flex;
+    width: 100%;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.projects-section li {
+    width: 33.33%;
+    padding: 2rem;
+    background-color: var(--bgColor-2);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.projects-section img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-top: 1rem;
+}
+
+/* Contact Messages Section */
+.contact-messages-section {
+    margin-bottom: 4rem;
+}
+
+.contact-messages-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primaryColor);
+    margin-bottom: 1.5rem;
+}
+
+.contact-messages-section ul {
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.contact-messages-section li {
+    padding: 2rem;
+    background-color: var(--bgColor-2);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Info Section */
+.contact-info-section {
+    margin-bottom: 4rem;
+}
+
+.contact-info-section h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primaryColor);
+    margin-bottom: 1.5rem;
+}
+
+.contact-info-section ul {
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.contact-info-section li {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: var(--bgColor-2);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.email-color {
+    color: var(--blue-500);
+}
+
+.red-500 {
+    color: var(--Red-500);
+}
+
+/* about style */
+.about {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    background-color: var(--bgColor-2);
+    padding: 2rem 0;
+}
+
+
+.about .container-text {
+    width: 50%;
+}
+
+.about .container-text h1 {
+    font-size: calc(1.325rem + .9vw);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.about .container-text p {
+    font-size: 1.4rem;
+    font-weight: 300;
+}
+
+.aboutImg {
+    width: 75%;
+}
+
+.links {
+    transition: color 0.3s;
+}
+
+
+.link-hover:hover {
+    color: var(--NavHover, #007bff) !important; 
+    
+}
+
+
+
+.secondry {
+    background-color: var(--bgColor-1);
+}
+
+@media screen and (max-width: 775px) {
+    .services-section ul, .experience-section ul, .projects-section ul, .user-profile, .about {
+        flex-direction: column;
+        
+    }
+    .container-images {
+        order: 1;
+    }
+    
+
+    .services-section li, .experience-section li, .projects-section li {
+        width: 90%;
+    }
+
+    .contact-info-item {
+        flex-wrap: wrap;
+    }
+}
+
+
+@media screen and (max-width: 400px){
+    .self-end, .container-images {
+        display: none;
+    }
+}

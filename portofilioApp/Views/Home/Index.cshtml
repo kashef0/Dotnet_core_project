@@ -1,0 +1,183 @@
+﻿@model PortfolioApp.Models.HomeViewModel
+
+<div class="mx-auto px-6 py-4 mainbg-color">
+    <!-- User Profile Section -->
+    <div class="user-profile content">
+        <div class="container-tests user-profile-container">
+            <h1 class="user-name">@Model.UserProfile.FirstOrDefault()?.Name</h1>
+            <h3 class="user-biog">@Model.UserProfile.FirstOrDefault()?.Biog</h3>
+            <div class="social">
+                @foreach (var social in Model.SocialLinks)
+                {
+                    <a href="@social.UserAccoutn" target="_blank" class="social-link">
+                        <img src="@social.Url" alt="@social.Platform" class="social-icon" />
+                    </a>
+                }
+            </div>
+        </div>
+        <div class="container-images self-end">
+            @if (!string.IsNullOrEmpty(Model.UserProfile.FirstOrDefault()?.Image))
+            {
+                <img src="@Model.UserProfile.FirstOrDefault()?.Image" alt="User Picture" class="user-image" loading="lazy" />
+            }
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section class="about">
+        <div class="container-images">
+            <img class="aboutImg" src="@Model.About.FirstOrDefault()?.Url" alt="@Model.About.FirstOrDefault()?.Url">
+        </div>
+        <div class="container-text">
+            <h1>Om <span class="h1-span">Mig</span></h1>
+            <h2>@Model.About.FirstOrDefault()?.Title</h2>
+            <p>@Model.About.FirstOrDefault()?.About</p>
+
+        </div>
+    </section>
+
+    <section class="skills-section text-center">
+    <h2 class="section-title-skills">Mina Färdigheter</h2>
+    <div class="d-flex flex-wrap justify-content-center gap-4">
+        @foreach (var skill in Model.Skills)
+        {
+            int percentage = skill.Level * 10; 
+            string color = percentage switch
+            {
+                <= 30 => "red",
+                <= 60 => "yellow",
+                _ => "green"
+            };
+
+            <div class="skill-item text-center">
+                <div class="progress-circle position-relative">
+                    <svg width="100" height="100">
+                        <circle cx="50" cy="50" r="40" stroke="lightgray" stroke-width="8" fill="none"/>
+                        <circle cx="50" cy="50" r="40" stroke="@color" stroke-width="8" fill="none"
+                                stroke-dasharray="251.2" 
+                                stroke-dashoffset="@(251.2 - (percentage / 100.0 * 251.2))"
+                                stroke-linecap="round"
+                                style="transition: stroke-dashoffset 1s ease, stroke 1s ease;" />
+                    </svg>
+
+                    <img src="@skill.Icon" alt="@skill.Name" class="skill-icon">
+                </div>
+                <p class="skill-percentage">@percentage%</p>
+                </div>
+            }
+                </div>
+        </section>
+
+
+
+
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <h2 class="section-title-service">Mina <span>Tänster</span></h2>
+        <ul class="services-list">
+            @foreach (var service in Model.Services)
+            {
+                <li class="service-item">
+                    <h3 class="service-title">@service.Title</h3>
+                    <p class="service-description">@service.Description</p>
+                </li>
+            }
+        </ul>
+    </section>
+
+    <!-- Experience Section -->
+   @if (Model.Experiences != null && Model.Experiences.Any()) 
+{
+    <section class="experience-section">
+        <h2 class="section-title">Erfarenheter</h2>
+        <ul class="experience-list">
+            @foreach (var experience in Model.Experiences)
+            {
+                <li class="experience-item">
+                    <h3 class="experience-company">@experience.Company</h3>
+                    <p class="experience-role">@experience.Role</p>
+                    <p class="text-white">@experience.Description</p>
+                    <p class="text-warning">@experience.StartDate.ToString("MMM yyyy") - @(experience.EndDate?.ToString("MMM yyyy") ?? "Present")</p>
+                </li>
+            }
+        </ul>
+    </section>
+}
+
+
+    <!-- Projects Section -->
+   <section class="projects-section">
+    <h2 class="section-title text-center mb-4">Projekt</h2>
+    <div id="projectsCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            @foreach (var project in Model.Projects.Select((p, index) => new { Project = p, Index = index }))
+            {
+                <div class="carousel-item @(project.Index == 0 ? "active" : "")">
+                    <div class="d-flex flex-column align-items-center text-center">
+                        <h3 class="project-title">@project.Project.Title</h3>
+                        <p class="project-description">@project.Project.Description</p>
+                        @if (!string.IsNullOrEmpty(project.Project.Image))
+                        {
+                            <img src="@project.Project.Image" alt="@project.Project.Title" class="d-block w-50 rounded">
+                        }
+                        <div class="mt-3">
+                            @if (!string.IsNullOrEmpty(project.Project.GitHubLink))
+                            {
+                                <a href="@project.Project.GitHubLink" target="_blank" class="btn btn-primary mx-2">GitHub</a>
+                            }
+                            @if (!string.IsNullOrEmpty(project.Project.DemoLink))
+                            {
+                                <a href="@project.Project.DemoLink" target="_blank" class="btn btn-secondary mx-2">Demo</a>
+                            }
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#projectsCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#projectsCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info-section">
+    <h2 class="section-title text-center">Kontaktuppgifter</h2>
+    <ul class="contact-info-list list-unstyled text-center">
+        @foreach (var contactInfo in Model.ContactInfo)
+        {
+            <li class="contact-info-item mb-3">
+                @if (!string.IsNullOrEmpty(contactInfo.PhoneNumber))
+                {
+                    <p class="contact-phone red-500"><strong class="text-light">Telefon:</strong> @contactInfo.PhoneNumber</p>
+                }
+                @if (!string.IsNullOrEmpty(contactInfo.Email))
+                {
+                    <p class="contact-email"><strong class="text-light">E-post:</strong> <a class="email-color" href="mailto:@contactInfo.Email">@contactInfo.Email</a></p>
+                }
+                @if (!string.IsNullOrEmpty(contactInfo.Adress))
+                {
+                    <p class="contact-address red-500"><strong class="text-light">Adress:</strong> @contactInfo.Adress</p>
+                }
+                @if (!string.IsNullOrEmpty(contactInfo.Postkod))
+                {
+                    <p class="contact-city red-500"><strong class="text-light">Postnummer:</strong> @contactInfo.Postkod</p>
+                }
+                @if (!string.IsNullOrEmpty(contactInfo.City))
+                {
+                    <p class="contact-city red-500"><strong class="text-light">Ort:</strong> @contactInfo.City</p>
+                }
+                
+                
+            </li>
+        }
+    </ul>
+</section>
+
+</div>
