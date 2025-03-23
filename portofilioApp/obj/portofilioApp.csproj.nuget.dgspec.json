@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kashe\\OneDrive\\Desktop\\.net-project\\portofilioApp\\portofilioApp.csproj": {}
+    "C:\\cygwin64\\home\\kashe\\git-files\\Dotnet_core_project\\portofilioApp\\portofilioApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kashe\\OneDrive\\Desktop\\.net-project\\portofilioApp\\portofilioApp.csproj": {
+    "C:\\cygwin64\\home\\kashe\\git-files\\Dotnet_core_project\\portofilioApp\\portofilioApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kashe\\OneDrive\\Desktop\\.net-project\\portofilioApp\\portofilioApp.csproj",
+        "projectUniqueName": "C:\\cygwin64\\home\\kashe\\git-files\\Dotnet_core_project\\portofilioApp\\portofilioApp.csproj",
         "projectName": "portofilioApp",
-        "projectPath": "C:\\Users\\kashe\\OneDrive\\Desktop\\.net-project\\portofilioApp\\portofilioApp.csproj",
+        "projectPath": "C:\\cygwin64\\home\\kashe\\git-files\\Dotnet_core_project\\portofilioApp\\portofilioApp.csproj",
         "packagesPath": "C:\\Users\\kashe\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kashe\\OneDrive\\Desktop\\.net-project\\portofilioApp\\obj\\",
+        "outputPath": "C:\\cygwin64\\home\\kashe\\git-files\\Dotnet_core_project\\portofilioApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\kashe\\AppData\\Roaming\\NuGet\\NuGet.Config",

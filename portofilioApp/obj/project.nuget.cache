@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UTTZeckoGGk=",
+  "dgSpecHash": "7ECfAxhJfq4=",
   "success": true,
-  "projectFilePath": "C:\\Users\\kashe\\OneDrive\\Desktop\\.net-project\\portofilioApp\\portofilioApp.csproj",
+  "projectFilePath": "C:\\cygwin64\\home\\kashe\\git-files\\Dotnet_core_project\\portofilioApp\\portofilioApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\kashe\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\kashe\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
